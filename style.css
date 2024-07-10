@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+header img {
+    width: 200px;
+    
+}
+
+header .img-container, header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background-color: black;
+    color: #efefef;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+main {
+    padding: 30px;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card  {
+    text-align: left;
+    padding: 0px 15px 10px;
+}
+
+.card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+}
+.card p {
+    font-size: 1.2rem;
+}
+
+.card-btns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.card button {
+    width: 100px;
+    padding: 8px 0px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+
+.card .btn-edit {
+    background-color: #49d6e6;
+
+}
+.card .btn-edit:hover {
+    background-color: #84e5ef;
+    scale: 1.05;
+    
+}
+
+.card .btn-delete {
+    background-color: #de6767;
+    
+}
+
+.card .btn-delete:hover {
+    background-color: #e48585;
+    scale: 1.05;
+}
