@@ -34,6 +34,14 @@ main {
     padding: 30px;
 }
 
+.container-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .card {
     width: 300px;
     border: 1px solid black;
