@@ -1,4 +1,5 @@
 const $ = (selector) => document.querySelector(selector);
+const URL = "http://localhost:8080/finalProjectCaC/sneakers";
 
 const getSneakers = async () => {
     const URL = "http://localhost:8080/finalProjectCaC/sneakers";
@@ -6,6 +7,27 @@ const getSneakers = async () => {
     const dataParse = await data.json();
 
     return dataParse;
+}
+
+const deleteSneaker = (e) => {
+    const OPTIONS = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(e.id_sneaker)
+    }
+
+    const isAccept = confirm(`Desea eliminar el producto ${e.brand} ${e.model}`);
+    if(isAccept) {
+        fetch(URL, OPTIONS)
+        .then(res => "Se elimino el producto correctamente!")
+        .then(e => location.reload())
+        .catch(e => {
+            console.log(e);
+            alert("Ocurrio un error al eliminar un producto!")
+        })
+    }
 }
 
 const handlerSneakerCard = (obj) => {
@@ -24,19 +46,16 @@ const handlerSneakerCard = (obj) => {
     const containerBtns = document.createElement('div');
     containerBtns.classList.add('card-btns');
 
-    const btnUpdate = document.createElement('button');
-    btnUpdate.textContent = "Editar";
-    btnUpdate.classList.add('btn', 'btn-edit');
-    containerBtns.appendChild(btnUpdate);
-
-    // btnUpdate.addEventListener('click', updateSneaker());
+    // const btnUpdate = document.createElement('button');
+    // btnUpdate.textContent = "Editar";
+    // btnUpdate.classList.add('btn', 'btn-edit');
+    // containerBtns.appendChild(btnUpdate);
 
     const btnDelete = document.createElement('button');
     btnDelete.textContent = "Eliminar";
     btnDelete.classList.add('btn', 'btn-delete');
     containerBtns.appendChild(btnDelete);
     
-    // btnDelete.addEventListener('click', deleteSneaker());
 
     card.appendChild(img);
     card.appendChild(title);
@@ -46,7 +65,7 @@ const handlerSneakerCard = (obj) => {
     return card;
 } 
 
-window.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const sneakers = await getSneakers();
     console.log(sneakers);
 
@@ -57,13 +76,18 @@ window.addEventListener("DOMContentLoaded", async () => {
         const e = sneakers[i];
 
         const card = handlerSneakerCard(e);
-        dFrag.appendChild(card)
+
+        const btnDelete = card.querySelector('.btn-delete');
         
+        btnDelete.onclick = function() {
+            deleteSneaker(e);
+        }
+
+        dFrag.appendChild(card)
+
     }
     container.appendChild(dFrag);
 });
-
-
 
 const validateForm = (form) => {
     let inputs = form.querySelectorAll('input, textarea');
@@ -75,7 +99,6 @@ const validateForm = (form) => {
     }
     return true;
 }
-
 
 const form = $('#post-form');
 
@@ -103,7 +126,6 @@ form.addEventListener('submit', (e) => {
         }
     }
 
-    const URL = "http://localhost:8080/finalProjectCaC/sneakers";
     const OPTIONS = {
             method: "POST",
             headers: {

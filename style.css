@@ -109,3 +109,37 @@ main {
     background-color: #e48585;
     scale: 1.05;
 }
+
+
+form {
+    width: 400px;
+    margin: 50px auto;
+}
+
+form input {
+    width: 100%;
+    padding: 5px;
+    margin: 1px 0 15px;
+    font-size: 1rem;
+}
+
+form label {
+    padding: 4px;
+    font-size: 1.1rem;
+}
+
+form button {
+    padding: 15px 20px;
+    display: block;
+    margin: 20px auto 0;
+    background-color: #121111;
+    color: #efefef;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: background-color .3s;
+}
+
+form button:hover {
+    background-color: #343232;
+}
