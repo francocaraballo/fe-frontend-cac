@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sneakers</title>
+    <title>Agregar Producto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
@@ -16,16 +16,28 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="add-product.html">Agregar Producto</a></li>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#">Agregar Producto</a></li>
             </ul>
         </nav>
+        <main>
+            <form id="post-form" method="post">
+                <label for="brand">Marca</label>
+                <input type="text" name="brand" id="brand">
+
+                <label for="model">Modelo</label>
+                <input type="text" name="model" id="model">
+
+                <label for="img">URL Imagen</label>
+                <input type="text" name="img" id="img">
+
+                <label for="price">Precio</label>
+                <input type="text" name="price" id="price">
+
+                <button type="submit" id="btn-submit">Enviar</button>
+            </form>
+        </main>
     </header>
-    <main>
-        <div class="container-products">
-            <!-- Products -->
-        </div>
-    </main>
     
     <script src="main.js"></script>
 </body>
